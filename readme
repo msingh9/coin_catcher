@@ -1,0 +1,42 @@
+1) Create python virtual environment. Run following command from a
+directory where you want to create the virtual environent.
+ python -m venv <env name>
+
+Example: (It will create env directory in the directory where you will
+run this command from)
+
+ python -m venv env
+
+2) Activate the virtual environment
+Please see https://docs.python.org/3/tutorial/venv.html
+
+ source env/bin/activate [On Unix or MacOS]
+ env/Scripts/activate.bac [on Windows]
+ 
+3) Install the dependencies
+ python -m pip install -r requirements.txt
+
+[Note: requirements.txt should be in git directory you cloned]
+
+
+4) You can not run play.py.
+ You can edit "policy" variable to play with different policies.
+ human:  You play
+ random: Random agent
+ monte_carlo: Agent trained with monte carlo method to estimate Q(s,a)
+ q_learning:  Q(s,a) learning by updating seen states and actions
+ dqn       : Doble deep Q(s,a) network
+
+5) You can train policy.py for your own state transformation to make
+Q(s,a) learning useful under "q_learning". See method "_transform" in
+policy.py. After training, it will save trained values in
+trained_models. See code under "__main__" in policy.py.
+
+To train Montel Carlo method, enable if condition in upper section of
+code.
+
+To train for q learning, enable if condition in lower section of the
+code.
+
+Models will be saved in trained_models folder.
+
